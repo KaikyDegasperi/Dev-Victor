@@ -17,7 +17,7 @@
 
 #about {
     position: relative;
-    background: url('../assets/pexels-kevin-ku-92347-577585.jpg') no-repeat center center;
+    background: url('../assets/1731180632961.jpg') no-repeat center center;
     background-size: cover;
     color: white;
     padding: 100px 0;
@@ -72,12 +72,15 @@
     height: 48px; /* Altura padronizada */
 }
 #skills {
-    background-color: var(--cinza-escuro) !important; /* Substitua #f0f0f0 pela cor desejada */
-    background-image: linear-gradient(to right, var(--cinza-escuro), rgba(0, 0, 0, 0.8)) !important;
-    background-color: rgba(0, 0, 0, 0.8)!important; /* Preto com transparência de 80% */
-    color: #E0E0E0; 
+    background-color: var(--cinza-escuro) !important;
+    background-image: linear-gradient(to right, rgb(4, 6, 68), rgba(12, 46, 168, 0.7), rgba(102, 210, 253, 0.897)) !important;
+    color: #E0E0E0;
 }
+
 #projects{
     display: flex;
     flex-direction: column;
+}
+footer{
+    background-image: linear-gradient(to right, rgb(5, 3, 99), rgba(9, 40, 142, 0.7), rgba(111, 252, 95, 0.897)) !important;
 }
