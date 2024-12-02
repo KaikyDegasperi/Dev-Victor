@@ -1,27 +1,24 @@
 /* Paleta de Cores */
 :root {
-    --azul-python: #306998;
-    --amarelo-python: #FFD43B;
-    --cinza-escuro: #2B2B2B;
-    --cinza-claro: #EDEDED;
-    --branco: #FFFFFF;
-    --preto: #121212;
-    --cinza-escuro: #1F1F1F;
-    --verde-neon: #39FF14;
-    --azul-eletrico: #0077FF;
-    --cinza-claro: #E0E0E0;
+    --azul-python: #306998;  /* Azul Python */
+    --azul-eletrico: #0077FF;  /* Azul Elétrico */
+    --azul-escuro: #003366;  /* Azul escuro */
+    --azul-claro: #66B2FF;  /* Azul Claro */
+    --preto: #121212;  /* Preto */
+    --branco: #FFFFFF;  /* Branco */
 }
+
 .bg-dark-translucent {
     background-color: rgba(0, 0, 0, 0.7); /* Ajuste o último valor para mudar a opacidade */
 }
 
 #about {
     position: relative;
-    background: url('../assets/1731180632961.jpg') no-repeat center center;
-    background-size: cover;
-    color: white;
+    background-color: var(--preto); /* Cor de fundo preta */
+    color: var(--azul-eletrico); /* Cor do texto azul elétrico */
     padding: 100px 0;
 }
+
 #about::before {
     content: "";
     position: absolute;
@@ -37,6 +34,7 @@
     position: relative;
     z-index: 2;
 }
+
 /* CSS para o efeito hover */
 .skill {
     position: relative;
@@ -48,7 +46,7 @@
     width: 100%;
     padding: 10px;
     background-color: rgba(0, 0, 0, 0.8);
-    color: white;
+    color: var(--branco); /* Cor do texto branco */
     font-size: 0.85em;
     border-radius: 5px;
     bottom: -50px;
@@ -61,26 +59,32 @@
 .skill:hover .hover-text {
     display: block;
 }
+
 .full-screen {
     height: 100vh;               /* Faz a seção ocupar 100% da altura da tela */
     display: flex;               /* Define display flex para centralização */
     justify-content: center;     /* Centraliza o conteúdo horizontalmente */
     align-items: center;         /* Centraliza o conteúdo verticalmente */
-  }
-  .skill-icon {
+}
+
+.skill-icon {
     width: 48px; /* Largura padronizada */
     height: 48px; /* Altura padronizada */
 }
+
 #skills {
-    background-color: var(--cinza-escuro) !important;
-    background-image: linear-gradient(to right, rgb(4, 6, 68), rgba(12, 46, 168, 0.7), rgba(102, 210, 253, 0.897)) !important;
-    color: #E0E0E0;
+    background-color: var(--azul-escuro); /* Cor de fundo azul escuro */
+    color: var(--branco); /* Cor do texto branca */
 }
 
-#projects{
+#projects {
     display: flex;
     flex-direction: column;
+    background-color: var(--preto); /* Fundo preto */
+    color: var(--azul-claro); /* Cor do texto azul claro */
 }
-footer{
-    background-image: linear-gradient(to right, rgb(5, 3, 99), rgba(9, 40, 142, 0.7), rgba(111, 252, 95, 0.897)) !important;
+
+footer {
+    background-color: var(--azul-python); /* Fundo azul python */
+    color: var(--branco); /* Cor do texto branca */
 }
