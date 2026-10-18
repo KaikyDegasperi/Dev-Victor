@@ -1,88 +1,32 @@
-import { ArrowRight, Rocket, Sparkles } from "lucide-react";
+import { useState } from 'react'
+import { ArrowUpRight, Check, ChevronDown, Code2, Database, ExternalLink, Github, Linkedin, Mail, Menu, MessageCircle, MoveUpRight, Network, X, Zap } from 'lucide-react'
+import './App.css'
 
-export default function App() {
-  return (
-    <div className="min-h-screen bg-white text-gray-900">
-      {/* Navbar */}
-      <header className="sticky top-0 z-10 border-b border-black/5 bg-white/70 backdrop-blur">
-        <nav className="mx-auto max-w-6xl px-4 h-16 flex items-center justify-between">
-          <a href="#" className="flex items-center gap-2">
-            <span className="inline-flex size-8 rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600" />
-            <span className="font-semibold tracking-tight">Victor Degasperi</span>
-          </a>
-          <div className="hidden sm:flex items-center gap-6 text-sm">
-            <a href="#sobre" className="hover:opacity-80">Sobre</a>
-            <a href="#contato" className="hover:opacity-80">Contato</a>
-            <a href="#cta" className="px-4 py-2 rounded-full bg-indigo-600 text-white hover:bg-indigo-500 inline-flex items-center gap-2">
-              Começar <ArrowRight className="w-4 h-4" />
-            </a>
-          </div>
-        </nav>
-      </header>
-
-      {/* Hero */}
-      <section className="mx-auto max-w-6xl px-4 py-20">
-        <div className="grid md:grid-cols-2 gap-10 items-center">
-          <div>
-            <p className="inline-flex items-center gap-2 text-sm text-indigo-700 bg-indigo-50 px-3 py-1 rounded-full">
-              <Sparkles className="w-4 h-4" /> Página de apresentação
-            </p>
-            <h1 className="mt-4 text-4xl sm:text-5xl font-bold tracking-tight">
-              Automação, cientista de dados e Desenvolvedor fullstack <span className="text-indigo-600">sem complicação</span>.
-            </h1>
-            <p className="mt-4 text-gray-600">
-              Eu sou o Victor Kaíky Oliveira Degasperi. Construo soluções simples e escaláveis:
-              bots de automação, APIs e integrações com foco em resultados. Possuo experiência com análise de dados e desenvolvimento fullstack em diferentes stacks.
-            </p>
-            <div className="mt-6 flex flex-col sm:flex-row gap-3">
-              <a href="#cta" className="px-5 py-3 rounded-xl bg-indigo-600 text-white hover:bg-indigo-500 inline-flex items-center gap-2">
-                Fale comigo <ArrowRight className="w-4 h-4" />
-              </a>
-              <a href="https://github.com/KaikyDegasperi" className="px-5 py-3 rounded-xl border border-gray-200 hover:bg-gray-50 inline-flex items-center gap-2">
-                Ver projetos
-              </a>
-            </div>
-          </div>
-          <div className="relative">
-            <div className="aspect-video rounded-2xl border border-gray-200 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
-              <Rocket className="w-16 h-16 text-indigo-600" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Sobre */}
-      <section id="sobre" className="mx-auto max-w-6xl px-4 py-16">
-        <div className="rounded-2xl border border-gray-200 p-6">
-          <h2 className="text-2xl font-bold">Sobre</h2>
-          <p className="mt-3 text-gray-700">
-            Desenvolvedor back-end com foco em automação de portais, integração com bancos de dados
-            e construção de APIs. Trabalho com Python, Java e Laravel/Livewire, sempre priorizando
-            robustez, logs claros e reprodutibilidade (Docker/CI).
-          </p>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section id="cta" className="mx-auto max-w-6xl px-4 py-20">
-        <div className="rounded-3xl border border-gray-200 p-8 md:p-12 text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold">Vamos trabalhar juntos?</h2>
-          <p className="mt-2 text-gray-600">Me chame e conte o que você precisa.</p>
-          <div className="mt-6 flex justify-center gap-3">
-            <a href="mailto:victorkaiky.degasperi@gmail.com" className="px-5 py-3 rounded-xl bg-indigo-600 text-white hover:bg-indigo-500">
-              Enviar e-mail
-            </a>
-            <a href="https://www.linkedin.com/in/victor-degasperi-3ab903206/" target="_blank" className="px-5 py-3 rounded-xl border border-gray-200 hover:bg-gray-50">
-              LinkedIn
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer id="contato" className="border-t border-gray-200 py-8 text-center text-sm text-gray-500">
-        © {new Date().getFullYear()} Victor Degasperi — GitHub Pages
-      </footer>
-    </div>
-  );
+const services = [
+  { icon: Zap, number: '01', title: 'Automação de processos', text: 'Transforme tarefas manuais em fluxos confiáveis, rastreáveis e fáceis de acompanhar.', tags: ['Python', 'Workers', 'Docker'] },
+  { icon: Code2, number: '02', title: 'Sistemas web & integrações', text: 'Aplicações e APIs que conectam suas ferramentas e dão ritmo à operação.', tags: ['Laravel', 'REST', 'Full Stack'] },
+  { icon: Database, number: '03', title: 'Dados para decisões', text: 'Pipelines e estruturas de dados para transformar informação dispersa em ação.', tags: ['ETL', 'Dashboards', 'SQL'] },
+  { icon: Network, number: '04', title: 'IA aplicada ao negócio', text: 'Soluções inteligentes integradas ao seu processo, com foco no que gera valor.', tags: ['Python', 'APIs', 'Automação'] },
+]
+const projects = [
+  { type: 'AUTOMAÇÃO', company: 'CK Assessoria', title: 'Operações empresariais mais rastreáveis', text: 'Rotinas automatizadas conectando aplicações web, bancos de dados, workers e serviços externos.', tech: ['Python', 'Docker', 'Linux'], tone: 'purple' },
+  { type: 'FULL STACK + DADOS', company: 'Buendia', title: 'Dados comerciais no lugar certo', text: 'Evolução de aplicações e pipelines para disponibilizar leads e alimentar dashboards comerciais.', tech: ['ETL', 'Integrações', 'Full Stack'], tone: 'blue' },
+  { type: 'BACKEND + IA', company: 'Kaizom', title: 'Sistemas web que trabalham em segundo plano', text: 'Aplicações Laravel integradas a serviços Python, APIs e processos assíncronos.', tech: ['Laravel', 'Python', 'Workers'], tone: 'orange' },
+]
+function App() {
+  const [menuOpen, setMenuOpen] = useState(false), [service, setService] = useState('Automação de processos'), [brief, setBrief] = useState('')
+  const whatsapp = `https://wa.me/5561995050197?text=${encodeURIComponent(`Olá, Victor! Preciso de ajuda com ${service}.\n\n${brief || 'Gostaria de entender como podemos trabalhar juntos.'}`)}`
+  return <div className="site-shell">
+    <header className="nav"><a className="brand" href="#top"><span>VD</span><b>Victor Degasperi</b></a><button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label="Abrir menu">{menuOpen ? <X /> : <Menu />}</button><nav className={menuOpen ? 'open' : ''}><a href="#servicos">Serviços</a><a href="#projetos">Projetos</a><a href="#sobre">Sobre</a><a className="nav-cta" href="#contato">Vamos conversar <ArrowUpRight size={16}/></a></nav></header>
+    <main id="top">
+      <section className="hero container"><div className="hero-copy"><div className="eyebrow"><i/> SOFTWARE ENGINEER / FREELANCER</div><h1>Software que resolve <em>problemas reais.</em></h1><p className="hero-text">Desenvolvo sistemas, automações e integrações inteligentes que simplificam processos e ajudam empresas a crescer.</p><div className="actions"><a className="button primary" href="#contato">Solicitar projeto <ArrowUpRight size={17}/></a><a className="button ghost" href="#projetos">Ver trabalhos <MoveUpRight size={16}/></a></div><div className="availability"><span className="pulse"/> Disponível para novos projetos</div></div><div className="hero-art"><div className="art-glow"/><div className="code-card"><div className="code-top"><span/><span/><span/><small>automation.py</small></div><pre><code><b>def</b> <strong>solve</strong>(problem):{`\n`}  process = <i>understand</i>(problem){`\n`}  solution = build(process){`\n`}  <b>return</b> solution</code></pre><div className="code-status"><Check size={14}/> processo concluído</div></div><div className="float-chip chip-one"><Zap size={15}/> automação</div><div className="float-chip chip-two"><Database size={15}/> dados + IA</div></div></section>
+      <section className="trust container"><span>EXPERIÊNCIA PRÁTICA EM</span><div><b>CK</b> ASSESSORIA</div><div><b>BUENDIA</b></div><div><b>kaizom</b></div></section>
+      <section id="servicos" className="section container"><div className="section-heading"><div><div className="eyebrow">O QUE EU FAÇO</div><h2>Soluções pensadas para<br/><em>o seu negócio.</em></h2></div><p>Da primeira conversa ao deploy, construo tecnologia alinhada ao problema que precisa ser resolvido.</p></div><div className="service-grid">{services.map(s => <article className="service-card" key={s.number}><div className="card-number">{s.number}</div><Zap className="service-icon" size={25}/><h3>{s.title}</h3><p>{s.text}</p><div className="tags">{s.tags.map(t => <span key={t}>{t}</span>)}</div></article>)}</div></section>
+      <section id="projetos" className="section projects-section"><div className="container"><div className="section-heading"><div><div className="eyebrow">EXPERIÊNCIA QUE ENTREGA</div><h2>Projetos em <em>destaque.</em></h2></div><a className="text-link" href="https://github.com/KaikyDegasperi" target="_blank" rel="noreferrer">Ver GitHub <ArrowUpRight size={16}/></a></div><div className="project-grid">{projects.map(p => <article className={`project-card ${p.tone}`} key={p.company}><div className="project-visual"><span className="visual-label">{p.type}</span><div className="visual-orbit orbit-a"/><div className="visual-orbit orbit-b"/><div className="visual-core"><span>{p.company.slice(0,2)}</span></div></div><div className="project-body"><span className="company">{p.company}</span><h3>{p.title}</h3><p>{p.text}</p><div className="tags">{p.tech.map(t => <span key={t}>{t}</span>)}</div><a href="#contato" className="case-link">Conhecer o case <ArrowUpRight size={16}/></a></div></article>)}</div></div></section>
+      <section className="process section container"><div className="section-heading"><div><div className="eyebrow">COMO EU TRABALHO</div><h2>Clareza antes de<br/><em>cada linha de código.</em></h2></div><p>Um processo simples, transparente e orientado a resultado — sem complicar o que pode ser direto.</p></div><div className="steps">{['Diagnóstico','Proposta','Desenvolvimento','Entrega'].map((s, i) => <div className="step" key={s}><span>0{i+1}</span><h3>{s}</h3><p>{['Entendo o contexto e identifico onde a tecnologia pode gerar impacto.','Desenho o escopo, as prioridades e o caminho mais eficiente.','Construo, testo e mantenho você por dentro de cada evolução.','Coloco a solução em operação e deixo tudo documentado.'][i]}</p></div>)}</div></section>
+      <section id="sobre" className="about section"><div className="container about-grid"><div className="about-mark">VD<span>+</span></div><div><div className="eyebrow">SOBRE MIM</div><h2>Tecnologia com<br/><em>intenção.</em></h2><div className="experience-highlight"><strong>3+ anos</strong><span>como programador Full Stack, engenheiro de dados e cientista de dados.</span></div><p>Sou Victor Degasperi, desenvolvedor focado em backend, automação e dados. Gosto de entender como as coisas funcionam — e, principalmente, de fazer com que funcionem melhor.</p><p>Minha experiência passa por sistemas reais, operações comerciais e processos que precisam de robustez, logs claros e evolução contínua.</p><div className="about-links"><a href="https://www.linkedin.com/in/victor-degasperi-3ab903206/" target="_blank" rel="noreferrer"><Linkedin size={17}/> LinkedIn <ExternalLink size={13}/></a><a href="https://github.com/KaikyDegasperi" target="_blank" rel="noreferrer"><Github size={17}/> GitHub <ExternalLink size={13}/></a></div></div></div></section>
+      <section id="contato" className="contact section container"><div className="contact-copy"><div className="eyebrow">VAMOS CONVERSAR</div><h2>Tem um problema<br/>para <em>resolver?</em></h2><p>Conte um pouco sobre o que você precisa. Eu retorno com as perguntas certas e um próximo passo claro.</p><div className="contact-info"><a href="mailto:victorkaiky.degasperi@gmail.com"><Mail size={18}/> victorkaiky.degasperi@gmail.com</a><a href="https://wa.me/5561995050197" target="_blank" rel="noreferrer"><MessageCircle size={18}/> WhatsApp</a></div></div><div className="brief-card"><label>Qual serviço você precisa?</label><div className="select-wrap"><select value={service} onChange={e => setService(e.target.value)}>{services.map(s => <option key={s.title}>{s.title}</option>)}</select><ChevronDown size={16}/></div><label>Conte brevemente sua necessidade</label><textarea value={brief} onChange={e => setBrief(e.target.value)} placeholder="Ex.: preciso automatizar o envio de relatórios..."/><a className="button primary full" href={whatsapp} target="_blank" rel="noreferrer">Abrir briefing no WhatsApp <ArrowUpRight size={17}/></a><small>Você também pode escrever diretamente por e-mail.</small></div></section>
+    </main><footer><div className="container footer-inner"><a className="brand" href="#top"><span>VD</span><b>Victor Degasperi</b></a><span>© {new Date().getFullYear()} Victor Degasperi</span><div><a href="mailto:victorkaiky.degasperi@gmail.com">E-mail</a><a href="https://github.com/KaikyDegasperi">GitHub</a><a href="https://www.linkedin.com/in/victor-degasperi-3ab903206/">LinkedIn</a></div></div></footer>
+  </div>
 }
+export default App
